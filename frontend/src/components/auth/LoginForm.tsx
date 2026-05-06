@@ -11,7 +11,7 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToRegister }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { login } = useAuth();
@@ -20,13 +20,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToRegister }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!username || !password) {
+    if (!email || !password) {
       return;
     }
 
     setIsSubmitting(true);
     try {
-      await login(username, password);
+      await login(email, password);
       navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
@@ -44,14 +44,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToRegister }) => {
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="username" className="text-sm font-medium leading-none">
-              Username
+            <label htmlFor="email" className="text-sm font-medium leading-none">
+              Email
             </label>
             <Input
-              id="username"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>

@@ -11,7 +11,8 @@ interface RegisterFormProps {
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitchToLogin }) => {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -41,7 +42,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitchToLogin }) => {
 
     setIsSubmitting(true);
     try {
-      await register(username, password);
+      await register(name, email, password);
       navigate("/");
     } catch (error) {
       console.error("Registration failed:", error);
@@ -59,14 +60,27 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitchToLogin }) => {
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="register-username" className="text-sm font-medium leading-none">
-              Username
+            <label htmlFor="register-name" className="text-sm font-medium leading-none">
+              Full Name
             </label>
             <Input
-              id="register-username"
-              placeholder="Choose a username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              id="register-name"
+              placeholder="Enter your full name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <label htmlFor="register-email" className="text-sm font-medium leading-none">
+              Email
+            </label>
+            <Input
+              id="register-email"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -77,7 +91,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitchToLogin }) => {
             <Input
               id="register-password"
               type="password"
-              placeholder="Create a password"
+              placeholder="Create a password (min 6 chars)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
