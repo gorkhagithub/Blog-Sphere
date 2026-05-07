@@ -5,7 +5,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Edit, Trash, MessageCircle, Heart, Plus } from "lucide-react";
+import { Edit, Trash, MessageCircle, Plus } from "lucide-react";
 import { useBlog } from "@/contexts/BlogContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { format } from "date-fns";
@@ -91,9 +91,6 @@ const DashboardPage: React.FC = () => {
                     <CardFooter className="flex justify-between">
                       <div className="flex space-x-4">
                         <div className="flex items-center text-muted-foreground">
-                          <Heart className="mr-1 h-4 w-4" /> {post.likes}
-                        </div>
-                        <div className="flex items-center text-muted-foreground">
                           <MessageCircle className="mr-1 h-4 w-4" /> {post.comments.length}
                         </div>
                       </div>
@@ -158,12 +155,7 @@ const DashboardPage: React.FC = () => {
                         {userPosts.reduce((sum, post) => sum + post.comments.length, 0)}
                       </p>
                     </div>
-                    <div className="bg-muted/30 p-4 rounded-lg">
-                      <p className="text-sm font-medium text-muted-foreground mb-1">Total Likes</p>
-                      <p className="text-3xl font-bold">
-                        {userPosts.reduce((sum, post) => sum + post.likes, 0)}
-                      </p>
-                    </div>
+
                   </div>
                 </CardContent>
               </Card>

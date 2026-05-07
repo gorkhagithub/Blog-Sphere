@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Heart, Edit, Trash, ArrowLeft } from "lucide-react";
+import { Edit, Trash, ArrowLeft } from "lucide-react";
 import { format } from "date-fns";
 import { useBlog } from "@/contexts/BlogContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -144,18 +144,6 @@ const PostDetailPage: React.FC = () => {
           <MDEditor.Markdown source={post.content} style={{ whiteSpace: 'pre-wrap', backgroundColor: 'transparent', color: 'inherit' }} />
         </div>
         
-        <div className="flex items-center space-x-2 mb-8">
-          <Button 
-            variant={post.liked ? "default" : "outline"} 
-            size="sm" 
-            onClick={() => likePost(post.id)}
-            disabled={!user}
-            className={post.liked ? "bg-primary/20 hover:bg-primary/30 text-primary" : ""}
-          >
-            <Heart className={`mr-2 h-4 w-4 ${post.liked ? "fill-current" : ""}`} />
-            {post.likes} {post.likes === 1 ? "Like" : "Likes"}
-          </Button>
-        </div>
         
         <Separator className="my-8" />
         
