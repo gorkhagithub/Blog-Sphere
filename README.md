@@ -5,8 +5,8 @@ Welcome to **Blog-Sphere**, a fully-featured, production-ready full-stack web ap
 ---
 
 ## 🌟 Live Demo
-- **Frontend (Vercel):** [https://your-blog-sphere-frontend.vercel.app](https://your-blog-sphere-frontend.vercel.app)
-- **Backend (Render):** [https://your-blog-sphere-backend.onrender.com](https://your-blog-sphere-backend.onrender.com)
+- **Frontend (Vercel):** [https://frontend-rust-two-70.vercel.app](https://frontend-rust-two-70.vercel.app)
+- **Backend (Vercel):** [https://backend-beta-hazel-92.vercel.app](https://backend-beta-hazel-92.vercel.app)
 
 ---
 
@@ -50,15 +50,8 @@ Welcome to **Blog-Sphere**, a fully-featured, production-ready full-stack web ap
 ---
 
 ## 📸 Screenshots
-*(Add your project screenshots here)*
 
-| Home Page | Dashboard |
-|:---:|:---:|
-| <img src="https://via.placeholder.com/600x400.png?text=Home+Page" width="400"> | <img src="https://via.placeholder.com/600x400.png?text=Dashboard" width="400"> |
-
-| Blog Post | Markdown Editor |
-|:---:|:---:|
-| <img src="https://via.placeholder.com/600x400.png?text=Blog+Post" width="400"> | <img src="https://via.placeholder.com/600x400.png?text=Editor" width="400"> |
+![Blog-Sphere Live Website](./screenshot.png)
 
 ---
 
@@ -126,13 +119,11 @@ VITE_API_URL=http://localhost:5000/api
 
 ## 🌐 Deployment Guide
 
-### Deploying the Backend on Render
-1. Create a new **Web Service** on [Render.com](https://render.com/).
-2. Connect your GitHub repository and select the `backend` directory.
-3. Build Command: `npm install`
-4. Start Command: `npm start`
-5. Add all the backend environment variables under the "Environment" tab.
-6. Click **Deploy**.
+### Deploying the Backend on Vercel
+1. Create a `vercel.json` file in the `backend` folder to configure Serverless Functions.
+2. In Vercel, import your GitHub repository and select the `backend` directory.
+3. Add all the backend environment variables under the "Environment Variables" tab.
+4. Click **Deploy**.
 
 ### Deploying the Frontend on Vercel
 1. Log in to [Vercel](https://vercel.com/) and click **Add New Project**.
@@ -140,7 +131,7 @@ VITE_API_URL=http://localhost:5000/api
 3. Set the Root Directory to `frontend`.
 4. The Build Command (`npm run build`) and Output Directory (`dist`) should be auto-detected for Vite.
 5. In **Environment Variables**, add:
-   - `VITE_API_URL` = `https://your-deployed-render-backend-url.com/api`
+   - `VITE_API_URL` = `https://your-deployed-backend-url.com/api`
 6. Click **Deploy**.
 *(Routing is already configured for Vercel using the provided `vercel.json` file).*
 
@@ -154,4 +145,4 @@ Contributions, issues, and feature requests are welcome!
 ## 📝 License
 This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
-*Developed with ❤️ by [Your Name]*
+*Developed with ❤️ by Abhishek Gorkha*
