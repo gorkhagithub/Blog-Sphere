@@ -1,16 +1,16 @@
-# Blog-Sphere — Modern Full-Stack Blogging Platform 🚀
+# Blog-Sphere — Modern Full-Stack Blogging Platform 
 
 Welcome to **Blog-Sphere**, a fully-featured, production-ready full-stack web application built using the MERN stack (MongoDB, Express.js, React, Node.js). This portfolio-level project demonstrates modern web development practices including robust authentication, rich text editing, secure image uploads, responsive UI design, and cloud deployments.
 
 ---
 
-## 🌟 Live Demo
+## Live Demo
 - **Frontend (Vercel):** [https://frontend-rust-two-70.vercel.app](https://frontend-rust-two-70.vercel.app)
 - **Backend (Vercel):** [https://backend-beta-hazel-92.vercel.app](https://backend-beta-hazel-92.vercel.app)
 
 ---
 
-## 🚀 Features
+## Features
 
 ### Core Functionality
 - **User Authentication:** Secure JWT-based registration and login system with encrypted passwords (bcrypt.js).
@@ -29,7 +29,7 @@ Welcome to **Blog-Sphere**, a fully-featured, production-ready full-stack web ap
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 **Frontend:**
 - **Framework:** React.js (Vite)
@@ -49,13 +49,13 @@ Welcome to **Blog-Sphere**, a fully-featured, production-ready full-stack web ap
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ![Blog-Sphere Live Website](./screenshot.png)
 
 ---
 
-## 💻 Installation & Local Setup
+## Installation & Local Setup
 
 ### Prerequisites
 - Node.js (v18+)
@@ -96,7 +96,7 @@ The React frontend will be available at `http://localhost:5173`.
 
 ---
 
-## 🔐 Environment Variables
+## Environment Variables
 
 ### Backend (`/backend/.env`)
 ```env
@@ -117,7 +117,7 @@ VITE_API_URL=http://localhost:5000/api
 
 ---
 
-## 🌐 Deployment Guide
+## Deployment Guide
 
 ### Deploying the Backend on Vercel
 1. Create a `vercel.json` file in the `backend` folder to configure Serverless Functions.
@@ -137,12 +137,12 @@ VITE_API_URL=http://localhost:5000/api
 
 ---
 
-## 🤝 Contributing
+## Contributing
 Contributions, issues, and feature requests are welcome! 
 
 ---
 
-## 📝 License
+## icense
 This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
-*Developed with ❤️ by Abhishek Gorkha*
+*Developed by Abhishek Gorkha*
