@@ -13,16 +13,8 @@ app.use(cors({ origin: '*' })); // adjust this in production
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Database Connection Middleware for Vercel
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (error) {
-    console.error('Database connection error in middleware:', error);
-    res.status(500).json({ success: false, message: 'Database Connection Error' });
-  }
-});
+// Database connection is handled on server startup for Render
+
 
 // Route files
 const authRoutes = require('./routes/authRoutes');
@@ -50,14 +42,12 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server (Local only)
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, async () => {
-    await connectDB();
-    console.log(`🚀 Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-  });
-}
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, async () => {
+  await connectDB();
+  console.log(`🚀 Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+});
 
 // Export for Vercel
 module.exports = app;
