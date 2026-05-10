@@ -87,7 +87,7 @@ const PostForm: React.FC<PostFormProps> = ({ post, onSubmit, isSubmitting }) => 
   };
 
   return (
-    <Card className="w-full" data-color-mode="light">
+    <Card className="w-full">
       <form onSubmit={handleSubmit}>
         <CardHeader>
           <CardTitle>{post ? "Edit Post" : "Create New Post"}</CardTitle>

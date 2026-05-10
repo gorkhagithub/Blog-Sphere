@@ -140,7 +140,7 @@ const PostDetailPage: React.FC = () => {
           ))}
         </div>
         
-        <div className="blog-content prose dark:prose-invert max-w-none pb-8" data-color-mode="light">
+        <div className="blog-content prose dark:prose-invert max-w-none pb-8">
           <MDEditor.Markdown source={post.content} style={{ whiteSpace: 'pre-wrap', backgroundColor: 'transparent', color: 'inherit' }} />
         </div>
         

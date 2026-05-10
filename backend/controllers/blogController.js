@@ -5,7 +5,6 @@ const Blog = require('../models/Blog');
 // @access  Public
 exports.getBlogs = async (req, res) => {
   try {
-    let query;
     const reqQuery = { ...req.query };
     
     // Fields to exclude from filtering
@@ -15,13 +14,16 @@ exports.getBlogs = async (req, res) => {
     let queryStr = JSON.stringify(reqQuery);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
     
+    // Build a plain filter object for both the query and countDocuments
+    let filter = JSON.parse(queryStr);
+
     // Search by title
     if (req.query.search) {
-      const searchRegex = new RegExp(req.query.search, 'i');
-      query = Blog.find({ title: searchRegex, ...JSON.parse(queryStr) });
-    } else {
-      query = Blog.find(JSON.parse(queryStr));
+      filter.title = new RegExp(req.query.search, 'i');
     }
+
+    // Build the Mongoose query
+    let query = Blog.find(filter);
 
     // Populate author
     query = query.populate({
@@ -42,7 +44,7 @@ exports.getBlogs = async (req, res) => {
     const limit = parseInt(req.query.limit, 10) || 10;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-    const total = await Blog.countDocuments(query);
+    const total = await Blog.countDocuments(filter);
 
     query = query.skip(startIndex).limit(limit);
 

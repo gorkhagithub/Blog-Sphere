@@ -40,7 +40,7 @@ const blogSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // Create slug from title
-blogSchema.pre('save', function() {
+blogSchema.pre('save', async function() {
   if (this.isModified('title') || this.isNew) {
     this.slug = this.title.toLowerCase().replace(/[^a-zA-Z0-9 -]/g, '').replace(/\s+/g, '-');
   }

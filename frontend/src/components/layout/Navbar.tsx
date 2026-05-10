@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
       {user ? (
         <>
           <span className="hidden md:inline-block text-sm mr-2">
-            Welcome, {user.username}
+            Welcome, {user.name}
           </span>
           <Button variant="outline" onClick={handleLogout}>
             Log out
@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
                 {user ? (
                   <div className="space-y-4">
                     <p className="text-sm text-muted-foreground">
-                      Signed in as <strong>{user.username}</strong>
+                      Signed in as <strong>{user.name}</strong>
                     </p>
                     <SheetClose asChild>
                       <Button variant="outline" onClick={handleLogout} className="w-full">
