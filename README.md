@@ -6,7 +6,7 @@ Welcome to **Blog-Sphere**, a fully-featured, production-ready full-stack web ap
 
 ## Live Demo
 - **Frontend (Vercel):** https://blog-sphere-puce-omega.vercel.app/
-- **Backend (Vercel):** https://blog-sphere-r91l.onrender.com
+- **Backend (Render):** https://blog-sphere-r91l.onrender.com
 
 ---
 
